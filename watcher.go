@@ -26,7 +26,7 @@ func Scheduler(ctx context.Context) {
 
 // Cleaner removes backups that are older than given frequency
 func Cleaner(ctx context.Context) {
-	ticker := time.NewTicker(time.Duration(KeepTime*24) * time.Hour)
+	ticker := time.NewTicker(5 * time.Minute) // Poll the API every 5 minutes for new snapshots
 
 	go func() {
 		for {
