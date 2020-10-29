@@ -64,6 +64,8 @@ func main() {
 	}()
 
 	log.Println("Goby has started for droplet " + DropletID)
-	Scheduler(ctx)
+	go Scheduler(ctx)
+	go Cleaner(ctx)
 
+	<-ctx.Done()
 }
